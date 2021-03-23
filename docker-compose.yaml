@@ -1,0 +1,14 @@
+
+version: '2'
+services:
+  web:
+    build: ./img-rest
+    image: img-rest
+    container_name: img-rest
+    ports:
+    - 80:5000
+    volumes:
+    - ./img-rest:/code
+    # network_mode: host
+
+
