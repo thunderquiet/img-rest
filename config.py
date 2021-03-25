@@ -6,17 +6,20 @@ class Config( object ):
 
 # local dev
 class DevelopmentConfig( Config ):
-	IMG_STORE_PATH = "./img-store/"
+	IMG_STORE_PATH = "../img-store/"
+	IMG_STORE_PATH_GET = "../../img-store/"
 	ZMQ_HOST = "localhost"
 
 # unit tests
 class TestConfig( Config ):
 	IMG_STORE_PATH = "../img-store/"
+	IMG_STORE_PATH_GET = "../../img-store/"
 	ZMQ_HOST = "localhost"
 
 # production deployed to docker
 class DockerProductionConfig( Config ):
 	IMG_STORE_PATH = "/img-store/"
+	IMG_STORE_PATH_GET = "../img-store/"
 	ZMQ_HOST = "engine"
 
 

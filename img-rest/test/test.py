@@ -31,7 +31,6 @@ class TestImgRest(flask_unittest.AppTestCase):
 
 
     def test_resize_bad_input(self, app):
-        fp = tempfile.TemporaryFile()
         with app.test_client() as client:
             rv = client.post('/resize/' )
         print( rv )
