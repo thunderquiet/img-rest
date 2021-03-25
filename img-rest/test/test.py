@@ -5,6 +5,7 @@ import sys
 import flask_unittest
 
 sys.path.append(os.getcwd())
+sys.path.append(os.getcwd() + "/app")
 from app import runner
 
 

@@ -6,7 +6,9 @@ import sys
 import unittest
 
 sys.path.append(os.getcwd())
+sys.path.append(os.getcwd() + "/app")
 from app.runner import ImgEngine
+
 
 class Tests(unittest.TestCase):
 
