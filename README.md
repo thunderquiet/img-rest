@@ -19,7 +19,7 @@ $ pip install -r requirements.txt
 $ pytest test/test.py 
 ```
 
-API endpoints:
+### API endpoints:
 We expose three endpoints: 
 	POST /resize -> returns a guid id
 	GET /resize/<guid> -> returns the processed file
@@ -29,7 +29,7 @@ The code uses swagger documentation to automatically generate documentation the 
 
 
 
-Architecture:
+### Architecture:
 At the top level, we have two docker containers and a shared mount volume. One container is the API web service running on Python using Flask-restplus framework. The other container is a worker that resizes the images. Communication between them is handled via ZeroMQ messaging tool. The design is flexible enough that it can be extended to handle other types of image transformations in the future with minimal changes.
 
 We decided to save the files to disk in the API service and let the worker pick them up and process them instead of trying to pass raw binary data straight to the worker. This should provide better scalability - the communication between services is now reduced, and memory usage is kept to a minimum. Also this is more stable because if the service goes down most of the unprocessed images are already on disk and we can easily recover. A better design would be to use a database or some other cloud optimized storage such as S3.
@@ -45,7 +45,7 @@ We initially considered, but then discarded a few other designs. A publish/subsc
 
 
 
-Future Work:
+### Future Work:
 There are a lot of things we would like to improve with this setup if given the time.
 
 More tests are needed. We need to add tests and update code to handle a number of bad userinput cases. For example, the routes will fail if file is missing or is in wrong format but instead they should return a helpful error message. 
